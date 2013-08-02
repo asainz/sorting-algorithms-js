@@ -1,0 +1,16 @@
+'use strict';
+
+describe('Selection Sort', function () {
+
+    it('should return undefined if the parameter is not an array ', function () {
+        expect( selectionSort('hello') ).toBeUndefined();
+        expect( selectionSort(1) ).toBeUndefined();
+        expect( selectionSort({}) ).toBeUndefined();
+        expect( selectionSort() ).toBeUndefined();
+    });
+
+    it('should sort an unsorted array in ascendent way', function(){
+        expect( selectionSort([5,1,6,2,9,4]) ).toEqual( [1,2,4,5,6,9] );
+    });
+
+});
