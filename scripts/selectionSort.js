@@ -1,5 +1,5 @@
 var selectionSort = function( array ){
-    var min, minIndex, i, j, len, aux;
+    var min, i, j, len, aux;
 
     if( toString.call(array) !== '[object Array]' ){
         return undefined;
@@ -8,19 +8,17 @@ var selectionSort = function( array ){
     len = array.length;
 
     for( i = 0 ; i < len ; i++){
-        min = array[i];
-        minIndex = i;
+        min = i;
 
         for( j = (i+1) ; j < len ; j++ ){
-            if( array[j] < min ){
-                min = array[j];
-                minIndex = j;
+            if( array[j] < array[min] ){
+                min = j;
             }
         }
 
         aux = array[i];
-        array[i] = min;
-        array[minIndex] = aux;
+        array[i] = array[min];
+        array[min] = aux;
 
     }
 
