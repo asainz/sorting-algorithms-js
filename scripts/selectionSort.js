@@ -1,26 +1,36 @@
-var selectionSort = function( array ){
-    var min, i, j, len, aux;
+var selectionSort = (function(array){
+    
+    var swap = function(array, i, j){
+            aux = array[i];
+            array[i] = array[j];
+            array[j] = aux;
+        },
+        isArray = function(array){
+            return toString.call(array) === '[object Array]';
+        },
+        sort = function(array){
+            var min, i, j, len, aux;
 
-    if( toString.call(array) !== '[object Array]' ){
-        return undefined;
-    }
+            if( !isArray(array) ){ return undefined; }
 
-    len = array.length;
+            len = array.length;
 
-    for( i = 0 ; i < len ; i++){
-        min = i;
+            for( i = 0 ; i < len ; i++){
+                min = i;
 
-        for( j = (i+1) ; j < len ; j++ ){
-            if( array[j] < array[min] ){
-                min = j;
+                for( j = (i+1) ; j < len ; j++ ){
+                    if( array[j] < array[min] ){
+                        min = j;
+                    }
+                }
+                swap(array, i, min);
             }
-        }
 
-        aux = array[i];
-        array[i] = array[min];
-        array[min] = aux;
+            return array;
+        };
 
-    }
-
-    return array;
-};
+    return {
+        sort: sort
+    };
+    
+})();
