@@ -1,7 +1,7 @@
 var selectionSort = (function(array){
     
     var swap = function(array, i, j){
-            aux = array[i];
+            var aux = array[i];
             array[i] = array[j];
             array[j] = aux;
         },
@@ -9,7 +9,7 @@ var selectionSort = (function(array){
             return toString.call(array) === '[object Array]';
         },
         sort = function(array){
-            var min, i, j, len, aux;
+            var min, i, j, len;
 
             if( !isArray(array) ){ return undefined; }
 
